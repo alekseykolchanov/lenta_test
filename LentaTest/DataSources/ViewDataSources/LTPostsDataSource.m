@@ -90,7 +90,7 @@ NSString *const LTPostsDSCacheName = @"PostsCache";
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
-    
+    [fetchRequest setRelationshipKeyPathsForPrefetching:@[@"source"]];
     NSPredicate *predicate;
     
     if ([self sourcesToShow] && [[self sourcesToShow]count]>0){

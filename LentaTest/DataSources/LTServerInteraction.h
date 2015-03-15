@@ -10,7 +10,7 @@
 #import "ModelHeaders.h"
 
 
-typedef void(^LTServerCompletionBlock)(NSDictionary *response_dict, NSError *error);
+typedef void(^LTServerCompletionBlock)(NSArray *itemsArray, NSError *error);
 
 
 
@@ -18,6 +18,7 @@ typedef void(^LTServerCompletionBlock)(NSDictionary *response_dict, NSError *err
 
 +(instancetype)sharedInstance;
 
+-(void)downloadPostsWithUrl:(NSString*)urlString withCompletion:(LTServerCompletionBlock)completion;
 
 
 

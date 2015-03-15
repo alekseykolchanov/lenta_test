@@ -7,8 +7,16 @@
 //
 
 #import "ViewController.h"
+#import "LTDatabase.h"
+#import "LTIOSPostsDataSource.h"
 
 @interface ViewController ()
+{
+    LTIOSPostsDataSource *_dataSource;
+
+}
+
+@property (nonatomic,strong) NSMutableDictionary *updateUrlsDictionary;
 
 
 
@@ -19,20 +27,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:LTDatabaseDidStartPostUpdateNotification object:[LTDatabase sharedInstance]];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didStartUpdateNotification:) name:LTDatabaseDidStartPostUpdateNotification object:[LTDatabase sharedInstance]];
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:LTDatabaseDidFinishPostUpdateNotification object:[LTDatabase sharedInstance]];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didFinishUpdateNotification:) name:LTDatabaseDidFinishPostUpdateNotification object:[LTDatabase sharedInstance]];
+    
+    
+    _dataSource = [LTIOSPostsDataSource new];
+    [_dataSource setMainTV:[self tableView]];
     
     [self prepareInterface];
 }
 
 -(void)prepareInterface
 {
-//    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-//    refreshControl.tintColor = [UIColor grayColor];
-//    [refreshControl addTarget:self action:@selector(refershControlAction) forControlEvents:UIControlEventValueChanged];
-//    [self.collectionView addSubview:refreshControl];
-//    self.collectionView.alwaysBounceVertical = YES;
-    
-    
-    
+    [[self refreshControl]beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,11 +50,66 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)refershControlAction
+
+-(NSMutableDictionary*)updateUrlsDictionary
 {
+    if (!_updateUrlsDictionary)
+        _updateUrlsDictionary = [NSMutableDictionary new];
+    
+    return _updateUrlsDictionary;
+}
+
+
+-(void)didStartUpdateNotification:(NSNotification*)notification
+{
+    if ([notification userInfo][LTDatabaseUpdateNotificationSourceUrlKey])
+    {
+        [self updateUrlsDictionary][[notification userInfo][LTDatabaseUpdateNotificationSourceUrlKey]] = [NSDate date];
+        
+        [self updateRefreshControlState];
+        
+    }
+        
+}
+
+-(void)didFinishUpdateNotification:(NSNotification*)notification
+{
+    if ([notification userInfo][LTDatabaseUpdateNotificationSourceUrlKey])
+    {
+        [[self updateUrlsDictionary]removeObjectForKey:[notification userInfo][LTDatabaseUpdateNotificationSourceUrlKey]];
+        [self updateRefreshControlState];
+    }
+}
+
+-(void)updateRefreshControlState
+{
+    NSArray *allKeys = [[[self updateUrlsDictionary]allKeys]copy];
+    
+    NSDate *now = [NSDate date];
+    [allKeys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop) {
+        NSDate *keyDate = [self updateUrlsDictionary][key];
+        if (!keyDate)
+            return;
+        if ([now timeIntervalSinceDate:keyDate]>15.0f){
+            [[self updateUrlsDictionary]removeObjectForKey:key];
+        }
+    }];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([[self updateUrlsDictionary]count]>0)
+        {
+            [[self refreshControl]beginRefreshing];
+        }else{
+            [[self refreshControl]endRefreshing];
+        }
+    });
     
 }
 
+- (IBAction)refreshControlAction:(id)sender
+{
+    [[LTDatabase sharedInstance]srvUpdatePostsForSource:nil];
+}
 
 
 @end

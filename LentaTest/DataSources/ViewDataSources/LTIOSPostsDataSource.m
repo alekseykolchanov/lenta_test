@@ -21,6 +21,13 @@ __weak LTTableFooterView *_footerView;
 
 @implementation LTIOSPostsDataSource
 
+-(NSMutableSet*)selectedPostGUIDSet
+{
+    if (!_selectedPostGUIDSet)
+        _selectedPostGUIDSet = [NSMutableSet new];
+    
+    return _selectedPostGUIDSet;
+}
 -(void)setMainTV:(UITableView*)mainTV
 {
     _mainTV = mainTV;
@@ -57,12 +64,27 @@ __weak LTTableFooterView *_footerView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LTPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LTPostCell" forIndexPath:indexPath];
+    
+    LTPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    LTPostCell *cell;
+    
+    if ([post imageUrl] && [[post imageUrl]length]>0){
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LTPostCellFull" forIndexPath:indexPath];
+    }else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LTPostCellWOImage" forIndexPath:indexPath];
+    }
+    
+    
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
 - (void)configureCell:(LTPostCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat lblWidth = [self mainTV].bounds.size.width-40;
+    [[cell titleLbl]setPreferredMaxLayoutWidth:lblWidth];
+    [[cell descriptionLbl]setPreferredMaxLayoutWidth:lblWidth];
     
     LTPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
@@ -107,7 +129,7 @@ __weak LTTableFooterView *_footerView;
         [[self selectedPostGUIDSet]removeObject:selectedGUID];
         [(LTPostCell*)[[self mainTV]cellForRowAtIndexPath:indexPath] setOpened:NO animated:YES];
     }else{
-        [[self selectedPostGUIDSet]addObject:[post guid]];
+        [[self selectedPostGUIDSet]addObject:[[post guid]copy]];
         [(LTPostCell*)[[self mainTV]cellForRowAtIndexPath:indexPath] setOpened:YES animated:YES];
     }
     
@@ -118,10 +140,51 @@ __weak LTTableFooterView *_footerView;
 
 -(CGFloat)heightForCellAtIndexPath:(NSIndexPath*)indexPath
 {
+    LTPost *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    return 100.0f;
+    LTPostCell *sizingCell;
+    if ([post imageUrl] && [[post imageUrl]length]>0)
+    {
+        sizingCell = [self sizingPostCellWithImage];
+    }else{
+        sizingCell = [self sizingPostCellWOImage];
+    }
+    
+    [self configureCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
 }
 
+
+-(LTPostCell*)sizingPostCellWithImage
+{
+    static LTPostCell *_sizingPostCellWithImage = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sizingPostCellWithImage = [self.mainTV dequeueReusableCellWithIdentifier:@"LTPostCellFull"];
+    });
+    
+    return _sizingPostCellWithImage;
+}
+
+-(LTPostCell*)sizingPostCellWOImage
+{
+    static LTPostCell *_sizingPostCellWOImage = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sizingPostCellWOImage = [self.mainTV dequeueReusableCellWithIdentifier:@"LTPostCellWOImage"];
+    });
+    
+    return _sizingPostCellWOImage;
+}
+
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height + 1.0f;
+}
 
 #pragma mark - Fetched results controller
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5920C1D71AB5F23C00603D73 /* LTXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5920C1D61AB5F23C00603D73 /* LTXMLParser.m */; };
+		592F82DA1AB616C6001D67AF /* LTPost+updateValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F82D91AB616C6001D67AF /* LTPost+updateValues.m */; };
 		8BF7E9D01AB58E7800845106 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9CF1AB58E7800845106 /* main.m */; };
 		8BF7E9D31AB58E7800845106 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9D21AB58E7800845106 /* AppDelegate.m */; };
 		8BF7E9D61AB58E7800845106 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9D51AB58E7800845106 /* ViewController.m */; };
@@ -40,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5920C1D51AB5F23C00603D73 /* LTXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTXMLParser.h; sourceTree = "<group>"; };
+		5920C1D61AB5F23C00603D73 /* LTXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTXMLParser.m; sourceTree = "<group>"; };
+		592F82D81AB616C6001D67AF /* LTPost+updateValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LTPost+updateValues.h"; sourceTree = "<group>"; };
+		592F82D91AB616C6001D67AF /* LTPost+updateValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LTPost+updateValues.m"; sourceTree = "<group>"; };
 		8BF7E9CA1AB58E7800845106 /* LentaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LentaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF7E9CE1AB58E7800845106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF7E9CF1AB58E7800845106 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				8BF7EA2B1AB5C36700845106 /* HelpClasses */,
-				8BF7EA231AB5AE2300845106 /* Protocols */,
 				8BF7E9F61AB5900F00845106 /* Model */,
 				8BF7E9F51AB5900800845106 /* DataSources */,
 				8BF7E9F41AB58FFC00845106 /* Views */,
@@ -206,6 +211,8 @@
 				8BF7EA1A1AB5A68600845106 /* LTSource+updateValues.m */,
 				8BF7EA0F1AB59ED100845106 /* LTPost.h */,
 				8BF7EA101AB59ED100845106 /* LTPost.m */,
+				592F82D81AB616C6001D67AF /* LTPost+updateValues.h */,
+				592F82D91AB616C6001D67AF /* LTPost+updateValues.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -219,13 +226,6 @@
 				8BF7EA211AB5AC5B00845106 /* LTIOSPostsDataSource.m */,
 			);
 			path = ViewDataSources;
-			sourceTree = "<group>";
-		};
-		8BF7EA231AB5AE2300845106 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		8BF7EA241AB5AFBB00845106 /* Cells */ = {
@@ -242,6 +242,8 @@
 			children = (
 				8BF7EA2C1AB5C38F00845106 /* LTCommonClass.h */,
 				8BF7EA2D1AB5C38F00845106 /* LTCommonClass.m */,
+				5920C1D51AB5F23C00603D73 /* LTXMLParser.h */,
+				5920C1D61AB5F23C00603D73 /* LTXMLParser.m */,
 			);
 			path = HelpClasses;
 			sourceTree = "<group>";
@@ -354,6 +356,8 @@
 				8BF7EA271AB5AFD900845106 /* LTPostCell.m in Sources */,
 				8BF7EA1B1AB5A68600845106 /* LTSource+updateValues.m in Sources */,
 				8BF7EA031AB591D000845106 /* SDCoreDataController.m in Sources */,
+				5920C1D71AB5F23C00603D73 /* LTXMLParser.m in Sources */,
+				592F82DA1AB616C6001D67AF /* LTPost+updateValues.m in Sources */,
 				8BF7EA181AB5A55300845106 /* LTSource.m in Sources */,
 				8BF7EA1F1AB5AB1C00845106 /* LTPostsDataSource.m in Sources */,
 				8BF7EA2E1AB5C38F00845106 /* LTCommonClass.m in Sources */,
@@ -555,6 +559,7 @@
 				8BF7E9EF1AB58E7800845106 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8BF7E9F01AB58E7800845106 /* Build configuration list for PBXNativeTarget "LentaTestTests" */ = {
 			isa = XCConfigurationList;
@@ -563,6 +568,7 @@
 				8BF7E9F21AB58E7800845106 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

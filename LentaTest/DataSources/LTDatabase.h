@@ -7,6 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ModelHeaders.h"
+
+
+NSString *const LTDatabaseDidStartPostUpdateNotification;
+NSString *const LTDatabaseDidFinishPostUpdateNotification;
+
+NSString *const LTDatabaseUpdateNotificationSourceUrlKey;
+NSString *const LTDatabaseUpdateNotificationErrorKey;
 
 @interface LTDatabase : NSObject
 
@@ -14,5 +22,8 @@
 
 
 -(void)didBecomeActive;
+
+
+-(void)srvUpdatePostsForSource:(LTSource*)source;
 
 @end

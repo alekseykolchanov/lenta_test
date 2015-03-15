@@ -7,4 +7,4 @@
 //
 
 #import "LTSource+updateValues.h"
-#import "LTPost.h"
+#import "LTPost+updateValues.h"

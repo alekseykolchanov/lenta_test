@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1510" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14D98g" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="LTPost" representedClassName="LTPost" syncable="YES">
         <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isRead" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isRead" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pubDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="shortDescr" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,7 +18,7 @@
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LTPost" inverseName="source" inverseEntity="LTPost" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LTPost" positionX="-90" positionY="-18" width="128" height="178"/>
+        <element name="LTPost" positionX="-90" positionY="-18" width="128" height="180"/>
         <element name="LTSource" positionX="-279" positionY="56" width="128" height="103"/>
     </elements>
 </model>

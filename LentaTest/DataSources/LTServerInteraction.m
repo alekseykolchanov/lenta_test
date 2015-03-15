@@ -8,6 +8,7 @@
 
 #import "LTServerInteraction.h"
 #import <UIKit/UIKit.h>
+#import "LTXMLParser.h"
 
 
 
@@ -134,42 +135,64 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 
 
 
--(NSDictionary*)dictionaryFromResponseData:(NSData*)dataContainer
+-(void)downloadPostsWithUrl:(NSString*)urlString withCompletion:(LTServerCompletionBlock)completion
 {
-    if (!dataContainer)
+    if (!urlString)
     {
-        return @{};
+        if (completion){
+            NSDictionary *userInfoDict = @{ NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Wrong url string: %@",urlString]};
+            NSError *error = [[NSError alloc] initWithDomain:@"ServerInteractionDomain"
+                                                        code:0
+                                                    userInfo:userInfoDict];
+            completion(nil,error);
+        }
     }
     
-    NSDictionary *d = [NSJSONSerialization JSONObjectWithData:dataContainer
-                                                      options:0
-                                                        error:nil];
+    NSURL *url = [NSURL URLWithString:urlString];
     
-    if (!d)
-    {
-        return @{};
-    }
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    [req setHTTPMethod:@"GET"];
+    [req setTimeoutInterval:15.0f];
     
-    return d;
+    NSURLSessionDataTask *dTask = [[self mainURLSession] dataTaskWithRequest:req completionHandler:^(NSData *resData, NSURLResponse *response, NSError *error){
+        if (!error)
+        {
+            LTXMLParser *parser = [[LTXMLParser alloc]initWithData:resData];
+            if (!parser)
+            {
+                if (completion)
+                {
+                    NSDictionary *userInfoDict = @{ NSLocalizedDescriptionKey : @"Unable to parse server response in XML" };
+                    NSError *error = [[NSError alloc] initWithDomain:@"XMLParserDomain"
+                                                                code:0
+                                                            userInfo:userInfoDict];
+                    
+                    completion(nil,error);
+                }
+            }
+            
+            [parser setCompletionBlock:^(NSArray* resItems, NSError *error) {
+                
+                if (completion)
+                    completion(resItems,error);
+                
+            }];
+            
+            [parser startParse];
+            
+        }else{
+            if (completion)
+                completion(nil,error);
+        }
+        
+        [self updateNetworkActivityIndicator];
+    }];
+    
+    [dTask resume];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    
 }
-
-
--(BOOL)manageResponseDictionary:(NSDictionary*)d
-{
-    if (!d)
-        return NO;
-    
-    NSNumber *code =d[@"code"];
-    
-    if (code && [code longValue]>=200 && [code longValue]<=202)
-    {
-        return YES;
-    }
-    
-    return NO;
-    
-}
-
 
 
 

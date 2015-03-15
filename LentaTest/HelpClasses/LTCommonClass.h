@@ -10,6 +10,8 @@
 
 @interface LTCommonClass : NSObject
 
++(NSDate*)dateFromServerDateString:(NSString*)dateString;
 +(NSString*)userFormatDateForPostDate:(NSDate*)date;
+
 
 @end

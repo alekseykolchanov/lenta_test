@@ -18,6 +18,10 @@
 
 @interface LTPostCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLbl;
+
+
 @property (nonatomic,weak) id<LTPostCellDelegate> delegate;
 
 @property (nonatomic,strong) LTPost *post;
