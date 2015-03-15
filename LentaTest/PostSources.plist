@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ver</key>
+	<string>1.0</string>
+	<key>Sources</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Lenta.ru</string>
+			<key>identificator</key>
+			<string>Lenta.ru</string>
+			<key>rssUrl</key>
+			<string>http://lenta.ru/rss</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Gazeta.ru</string>
+			<key>identificator</key>
+			<string>Gazeta.ru_lenta</string>
+			<key>rssUrl</key>
+			<string>http://www.gazeta.ru/export/rss/lenta.xml</string>
+		</dict>
+	</array>
+</dict>
+</plist>

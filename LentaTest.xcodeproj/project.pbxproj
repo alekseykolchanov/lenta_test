@@ -14,6 +14,19 @@
 		8BF7E9DB1AB58E7800845106 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF7E9DA1AB58E7800845106 /* Images.xcassets */; };
 		8BF7E9DE1AB58E7800845106 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF7E9DC1AB58E7800845106 /* LaunchScreen.xib */; };
 		8BF7E9EA1AB58E7800845106 /* LentaTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9E91AB58E7800845106 /* LentaTestTests.m */; };
+		8BF7E9FA1AB5917100845106 /* lentatest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9F81AB5917100845106 /* lentatest.xcdatamodeld */; };
+		8BF7E9FD1AB5918A00845106 /* LTDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9FC1AB5918A00845106 /* LTDatabase.m */; };
+		8BF7EA021AB591D000845106 /* LTServerInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9FF1AB591D000845106 /* LTServerInteraction.m */; };
+		8BF7EA031AB591D000845106 /* SDCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA011AB591D000845106 /* SDCoreDataController.m */; };
+		8BF7EA0E1AB596ED00845106 /* PostSources.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF7EA0D1AB596ED00845106 /* PostSources.plist */; };
+		8BF7EA111AB59ED100845106 /* LTPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA101AB59ED100845106 /* LTPost.m */; };
+		8BF7EA181AB5A55300845106 /* LTSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA171AB5A55300845106 /* LTSource.m */; };
+		8BF7EA1B1AB5A68600845106 /* LTSource+updateValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA1A1AB5A68600845106 /* LTSource+updateValues.m */; };
+		8BF7EA1F1AB5AB1C00845106 /* LTPostsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA1E1AB5AB1C00845106 /* LTPostsDataSource.m */; };
+		8BF7EA221AB5AC5B00845106 /* LTIOSPostsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA211AB5AC5B00845106 /* LTIOSPostsDataSource.m */; };
+		8BF7EA271AB5AFD900845106 /* LTPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA261AB5AFD900845106 /* LTPostCell.m */; };
+		8BF7EA2A1AB5B64600845106 /* LTTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA291AB5B64600845106 /* LTTableFooterView.m */; };
+		8BF7EA2E1AB5C38F00845106 /* LTCommonClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7EA2D1AB5C38F00845106 /* LTCommonClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +53,31 @@
 		8BF7E9E31AB58E7800845106 /* LentaTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LentaTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF7E9E81AB58E7800845106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF7E9E91AB58E7800845106 /* LentaTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LentaTestTests.m; sourceTree = "<group>"; };
+		8BF7E9F91AB5917100845106 /* lentatest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = lentatest.xcdatamodel; sourceTree = "<group>"; };
+		8BF7E9FB1AB5918A00845106 /* LTDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTDatabase.h; sourceTree = "<group>"; };
+		8BF7E9FC1AB5918A00845106 /* LTDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTDatabase.m; sourceTree = "<group>"; };
+		8BF7E9FE1AB591D000845106 /* LTServerInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTServerInteraction.h; sourceTree = "<group>"; };
+		8BF7E9FF1AB591D000845106 /* LTServerInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTServerInteraction.m; sourceTree = "<group>"; };
+		8BF7EA001AB591D000845106 /* SDCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCoreDataController.h; sourceTree = "<group>"; };
+		8BF7EA011AB591D000845106 /* SDCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCoreDataController.m; sourceTree = "<group>"; };
+		8BF7EA0D1AB596ED00845106 /* PostSources.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PostSources.plist; sourceTree = "<group>"; };
+		8BF7EA0F1AB59ED100845106 /* LTPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPost.h; sourceTree = "<group>"; };
+		8BF7EA101AB59ED100845106 /* LTPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPost.m; sourceTree = "<group>"; };
+		8BF7EA151AB59EE200845106 /* ModelHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelHeaders.h; sourceTree = "<group>"; };
+		8BF7EA161AB5A55300845106 /* LTSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTSource.h; sourceTree = "<group>"; };
+		8BF7EA171AB5A55300845106 /* LTSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTSource.m; sourceTree = "<group>"; };
+		8BF7EA191AB5A68600845106 /* LTSource+updateValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LTSource+updateValues.h"; sourceTree = "<group>"; };
+		8BF7EA1A1AB5A68600845106 /* LTSource+updateValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LTSource+updateValues.m"; sourceTree = "<group>"; };
+		8BF7EA1D1AB5AB1C00845106 /* LTPostsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostsDataSource.h; sourceTree = "<group>"; };
+		8BF7EA1E1AB5AB1C00845106 /* LTPostsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostsDataSource.m; sourceTree = "<group>"; };
+		8BF7EA201AB5AC5B00845106 /* LTIOSPostsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTIOSPostsDataSource.h; sourceTree = "<group>"; };
+		8BF7EA211AB5AC5B00845106 /* LTIOSPostsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTIOSPostsDataSource.m; sourceTree = "<group>"; };
+		8BF7EA251AB5AFD900845106 /* LTPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTPostCell.h; sourceTree = "<group>"; };
+		8BF7EA261AB5AFD900845106 /* LTPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTPostCell.m; sourceTree = "<group>"; };
+		8BF7EA281AB5B64600845106 /* LTTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTableFooterView.h; sourceTree = "<group>"; };
+		8BF7EA291AB5B64600845106 /* LTTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTTableFooterView.m; sourceTree = "<group>"; };
+		8BF7EA2C1AB5C38F00845106 /* LTCommonClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTCommonClass.h; sourceTree = "<group>"; };
+		8BF7EA2D1AB5C38F00845106 /* LTCommonClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTCommonClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +119,14 @@
 		8BF7E9CC1AB58E7800845106 /* LentaTest */ = {
 			isa = PBXGroup;
 			children = (
+				8BF7EA2B1AB5C36700845106 /* HelpClasses */,
+				8BF7EA231AB5AE2300845106 /* Protocols */,
+				8BF7E9F61AB5900F00845106 /* Model */,
+				8BF7E9F51AB5900800845106 /* DataSources */,
+				8BF7E9F41AB58FFC00845106 /* Views */,
+				8BF7E9F31AB58FEE00845106 /* VCs */,
 				8BF7E9D11AB58E7800845106 /* AppDelegate.h */,
 				8BF7E9D21AB58E7800845106 /* AppDelegate.m */,
-				8BF7E9D41AB58E7800845106 /* ViewController.h */,
-				8BF7E9D51AB58E7800845106 /* ViewController.m */,
 				8BF7E9D71AB58E7800845106 /* Main.storyboard */,
 				8BF7E9DA1AB58E7800845106 /* Images.xcassets */,
 				8BF7E9DC1AB58E7800845106 /* LaunchScreen.xib */,
@@ -98,6 +140,7 @@
 			children = (
 				8BF7E9CE1AB58E7800845106 /* Info.plist */,
 				8BF7E9CF1AB58E7800845106 /* main.m */,
+				8BF7EA0D1AB596ED00845106 /* PostSources.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +160,90 @@
 				8BF7E9E81AB58E7800845106 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8BF7E9F31AB58FEE00845106 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7E9D41AB58E7800845106 /* ViewController.h */,
+				8BF7E9D51AB58E7800845106 /* ViewController.m */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		8BF7E9F41AB58FFC00845106 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7EA281AB5B64600845106 /* LTTableFooterView.h */,
+				8BF7EA291AB5B64600845106 /* LTTableFooterView.m */,
+				8BF7EA241AB5AFBB00845106 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8BF7E9F51AB5900800845106 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7E9FB1AB5918A00845106 /* LTDatabase.h */,
+				8BF7E9FC1AB5918A00845106 /* LTDatabase.m */,
+				8BF7E9FE1AB591D000845106 /* LTServerInteraction.h */,
+				8BF7E9FF1AB591D000845106 /* LTServerInteraction.m */,
+				8BF7EA001AB591D000845106 /* SDCoreDataController.h */,
+				8BF7EA011AB591D000845106 /* SDCoreDataController.m */,
+				8BF7EA1C1AB5AADB00845106 /* ViewDataSources */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		8BF7E9F61AB5900F00845106 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7E9F81AB5917100845106 /* lentatest.xcdatamodeld */,
+				8BF7EA151AB59EE200845106 /* ModelHeaders.h */,
+				8BF7EA161AB5A55300845106 /* LTSource.h */,
+				8BF7EA171AB5A55300845106 /* LTSource.m */,
+				8BF7EA191AB5A68600845106 /* LTSource+updateValues.h */,
+				8BF7EA1A1AB5A68600845106 /* LTSource+updateValues.m */,
+				8BF7EA0F1AB59ED100845106 /* LTPost.h */,
+				8BF7EA101AB59ED100845106 /* LTPost.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8BF7EA1C1AB5AADB00845106 /* ViewDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7EA1D1AB5AB1C00845106 /* LTPostsDataSource.h */,
+				8BF7EA1E1AB5AB1C00845106 /* LTPostsDataSource.m */,
+				8BF7EA201AB5AC5B00845106 /* LTIOSPostsDataSource.h */,
+				8BF7EA211AB5AC5B00845106 /* LTIOSPostsDataSource.m */,
+			);
+			path = ViewDataSources;
+			sourceTree = "<group>";
+		};
+		8BF7EA231AB5AE2300845106 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		8BF7EA241AB5AFBB00845106 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7EA251AB5AFD900845106 /* LTPostCell.h */,
+				8BF7EA261AB5AFD900845106 /* LTPostCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8BF7EA2B1AB5C36700845106 /* HelpClasses */ = {
+			isa = PBXGroup;
+			children = (
+				8BF7EA2C1AB5C38F00845106 /* LTCommonClass.h */,
+				8BF7EA2D1AB5C38F00845106 /* LTCommonClass.m */,
+			);
+			path = HelpClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +290,7 @@
 		8BF7E9C21AB58E7800845106 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LT;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = DOTCAPITAL;
 				TargetAttributes = {
@@ -200,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF7E9D91AB58E7800845106 /* Main.storyboard in Resources */,
+				8BF7EA0E1AB596ED00845106 /* PostSources.plist in Resources */,
 				8BF7E9DE1AB58E7800845106 /* LaunchScreen.xib in Resources */,
 				8BF7E9DB1AB58E7800845106 /* Images.xcassets in Resources */,
 			);
@@ -220,8 +349,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF7E9D61AB58E7800845106 /* ViewController.m in Sources */,
+				8BF7EA111AB59ED100845106 /* LTPost.m in Sources */,
 				8BF7E9D31AB58E7800845106 /* AppDelegate.m in Sources */,
+				8BF7EA271AB5AFD900845106 /* LTPostCell.m in Sources */,
+				8BF7EA1B1AB5A68600845106 /* LTSource+updateValues.m in Sources */,
+				8BF7EA031AB591D000845106 /* SDCoreDataController.m in Sources */,
+				8BF7EA181AB5A55300845106 /* LTSource.m in Sources */,
+				8BF7EA1F1AB5AB1C00845106 /* LTPostsDataSource.m in Sources */,
+				8BF7EA2E1AB5C38F00845106 /* LTCommonClass.m in Sources */,
+				8BF7E9FA1AB5917100845106 /* lentatest.xcdatamodeld in Sources */,
+				8BF7EA221AB5AC5B00845106 /* LTIOSPostsDataSource.m in Sources */,
 				8BF7E9D01AB58E7800845106 /* main.m in Sources */,
+				8BF7EA021AB591D000845106 /* LTServerInteraction.m in Sources */,
+				8BF7EA2A1AB5B64600845106 /* LTTableFooterView.m in Sources */,
+				8BF7E9FD1AB5918A00845106 /* LTDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +565,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8BF7E9F81AB5917100845106 /* lentatest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8BF7E9F91AB5917100845106 /* lentatest.xcdatamodel */,
+			);
+			currentVersion = 8BF7E9F91AB5917100845106 /* lentatest.xcdatamodel */;
+			path = lentatest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8BF7E9C21AB58E7800845106 /* Project object */;
 }
