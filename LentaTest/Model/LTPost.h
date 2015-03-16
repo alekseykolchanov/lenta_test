@@ -13,6 +13,7 @@
 
 @interface LTPost : NSManagedObject
 
+@property (nonatomic, retain) NSString * imageType;
 @property (nonatomic, retain) NSString * imageUrl;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * shortDescr;

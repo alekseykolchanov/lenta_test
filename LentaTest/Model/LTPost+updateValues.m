@@ -21,6 +21,17 @@
     self.guid = valDict[@"guid"];
     self.link = valDict[@"link"];
     self.pubDate = [LTCommonClass dateFromServerDateString:valDict[@"pubDate"]];
+    
+    
+    
+    if (self.imageData)
+    {
+        if (![self.imageUrl isEqualToString:valDict[@"imageUrl"]])
+            self.imageData = nil;
+    }
+    
+    self.imageType = valDict[@"imageType"];
+    self.imageUrl = valDict[@"imageUrl"];
 }
 
 

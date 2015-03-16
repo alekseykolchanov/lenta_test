@@ -194,6 +194,33 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
     
 }
 
+-(void)getImageDataAtUrl:(NSString*)imageUrlString withCompletion:(void (^) (NSData *imageData, NSError *error))completion
+{
+    if (!imageUrlString)
+    {
+        if (completion)
+            completion(nil,nil);
+        
+        return;
+    }
+    
+    NSURL *url = [NSURL URLWithString:imageUrlString];
+    
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    [req setHTTPMethod:@"GET"];
+    
+    NSURLSessionDataTask *dTask = [[self mainURLSession] dataTaskWithRequest:req completionHandler:^(NSData *resData, NSURLResponse *response, NSError *error){
+        if (completion)
+            completion(resData,error);
+        
+        [self updateNetworkActivityIndicator];
+    }];
+    
+    [dTask resume];
+    
+    
+}
+
 
 
 @end

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LTPostCell" rowHeight="88" id="oe0-IL-Xzd" customClass="LTPostCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oe0-IL-Xzd" id="B4d-2L-4aY">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MdX-uM-HrB" userLabel="paperView">
+                        <rect key="frame" x="8" y="6" width="584" height="77"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0f-6o-s5B" userLabel="descriptionLbl">
+                                <rect key="frame" x="12" y="13" width="560" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26z-AE-hDk" userLabel="titleLbl">
+                                <rect key="frame" x="12" y="12" width="560" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtI-67-dmr">
+                                <rect key="frame" x="526" y="33" width="46" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="J76-Qh-HE3"/>
+                                    <constraint firstAttribute="height" constant="44" id="g12-uc-A8u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <state key="normal" title="Source">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sourceBtnClk:" destination="oe0-IL-Xzd" eventType="touchUpInside" id="wyW-mv-S6h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 10 марта 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4X-9s-ocG" userLabel="dateLbl">
+                                <rect key="frame" x="12" y="48" width="118" height="15"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rtI-67-dmr" firstAttribute="top" secondItem="y0f-6o-s5B" secondAttribute="bottom" id="93C-sT-hFU"/>
+                            <constraint firstItem="x4X-9s-ocG" firstAttribute="leading" secondItem="MdX-uM-HrB" secondAttribute="leading" constant="12" id="FrN-ad-SXx"/>
+                            <constraint firstItem="rtI-67-dmr" firstAttribute="top" secondItem="26z-AE-hDk" secondAttribute="bottom" priority="999" constant="8" id="IrP-O5-Ehf"/>
+                            <constraint firstItem="26z-AE-hDk" firstAttribute="leading" secondItem="MdX-uM-HrB" secondAttribute="leading" constant="12" id="K1c-tz-cCj"/>
+                            <constraint firstItem="y0f-6o-s5B" firstAttribute="leading" secondItem="MdX-uM-HrB" secondAttribute="leading" constant="12" id="W2z-6x-V4G"/>
+                            <constraint firstItem="x4X-9s-ocG" firstAttribute="baseline" secondItem="rtI-67-dmr" secondAttribute="baseline" id="YyN-vG-QEk"/>
+                            <constraint firstAttribute="trailing" secondItem="rtI-67-dmr" secondAttribute="trailing" constant="12" id="ZMf-pL-q6N"/>
+                            <constraint firstAttribute="trailing" secondItem="y0f-6o-s5B" secondAttribute="trailing" constant="12" id="cSn-g6-OP6"/>
+                            <constraint firstAttribute="trailing" secondItem="26z-AE-hDk" secondAttribute="trailing" constant="12" id="s5f-Xp-pf3"/>
+                            <constraint firstItem="26z-AE-hDk" firstAttribute="top" secondItem="MdX-uM-HrB" secondAttribute="top" constant="12" id="tlj-jr-Snd"/>
+                            <constraint firstAttribute="bottom" secondItem="rtI-67-dmr" secondAttribute="bottom" id="waE-dZ-1kc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="IrP-O5-Ehf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="MdX-uM-HrB" secondAttribute="trailing" constant="8" id="4uX-J1-JAG"/>
+                    <constraint firstItem="MdX-uM-HrB" firstAttribute="leading" secondItem="B4d-2L-4aY" secondAttribute="leading" constant="8" id="HqF-zs-S5q"/>
+                    <constraint firstItem="MdX-uM-HrB" firstAttribute="top" secondItem="B4d-2L-4aY" secondAttribute="top" constant="6" id="RVO-jO-2fF"/>
+                    <constraint firstAttribute="bottom" secondItem="MdX-uM-HrB" secondAttribute="bottom" constant="4" id="xPm-VO-0RN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="dateLbl" destination="x4X-9s-ocG" id="TzT-3A-bzG"/>
+                <outlet property="descriptionLbl" destination="y0f-6o-s5B" id="0Y1-do-JDH"/>
+                <outlet property="paperView" destination="MdX-uM-HrB" id="D4a-Fb-JhZ"/>
+                <outlet property="sourceBtn" destination="rtI-67-dmr" id="n5D-R6-lj8"/>
+                <outlet property="titleLbl" destination="26z-AE-hDk" id="X2b-Bg-36J"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

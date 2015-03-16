@@ -100,6 +100,8 @@
 // If namespace processing >isn't< on, the xmlns:radar="http://xml.apple.com/radar" is returned as an attribute pair, the elementName is 'radar:radar' and there is no qualifiedName.
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
+    
+    
     if ([elementName isEqualToString:@"item"]){
         _curItem = [NSMutableDictionary new];
     }else if (_curItem){
@@ -110,8 +112,15 @@
             [elementName isEqualToString:@"pubDate"]){
             _startedItemField = elementName;
             _itemFieldValue = [NSMutableString new];
-        }else{
+        }else if ([elementName isEqualToString:@"enclosure"]){
+            NSString *urlValue=[attributeDict valueForKey:@"url"];
+            NSString *urlType=[attributeDict valueForKey:@"type"];
             
+            if ([urlType containsString:@"image/"] && urlValue && [urlValue length]>0)
+            {
+                _curItem[@"imageUrl"] = urlValue;
+                _curItem[@"imageType"] = urlType;
+            }
         }
     }
 }
@@ -119,6 +128,8 @@
 // sent when an end tag is encountered. The various parameters are supplied as above.
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    
+    
     if ([elementName isEqualToString:@"item"])
     {
         if (_curItem && [_curItem count]>0)
@@ -179,14 +190,20 @@
 // this reports a CDATA block to the delegate as an NSData.
 - (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock
 {
+    if (_startedItemField && _itemFieldValue){
+        NSString *str = [[NSString alloc] initWithData:CDATABlock encoding:NSUTF8StringEncoding];
+        if (str)
+            [_itemFieldValue appendString:str];
+    }
     
 }
 
 // this gives the delegate an opportunity to resolve an external entity itself and reply with the resulting data.
-- (NSData *)parser:(NSXMLParser *)parser resolveExternalEntityName:(NSString *)name systemID:(NSString *)systemID
-{
-    return [NSData data];
-}
+//- (NSData *)parser:(NSXMLParser *)parser resolveExternalEntityName:(NSString *)name systemID:(NSString *)systemID
+//{
+//  
+//    
+//}
 
 // ...and this reports a fatal error to the delegate. The parser will stop parsing.
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError

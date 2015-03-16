@@ -9,6 +9,7 @@
 #import "LTPostCell.h"
 #import "LTSource.h"
 #import "LTCommonClass.h"
+#import "LTDatabase.h"
 
 @interface LTPostCell ()
 
@@ -17,14 +18,20 @@
 @property (weak, nonatomic) IBOutlet UIButton *sourceBtn;
 @property (weak, nonatomic) IBOutlet UILabel *dateLbl;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleToSourceConstraint;
-
 - (IBAction)sourceBtnClk:(id)sender;
 
 @end
 
 
 @implementation LTPostCell
+
+-(void)awakeFromNib
+{
+    [self paperView].layer.borderColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
+    [self paperView].layer.borderWidth = 0.5f;
+    
+}
+
 
 -(void)setPost:(LTPost *)post
 {
@@ -46,14 +53,26 @@
             [[self sourceBtn]setEnabled:YES];
         }
         
-        [[self postIV]setImage:[UIImage imageWithData:[post imageData]]];
+        [[self postIV]setImage:nil];
+        if ([post imageData])
+        {
+            UIImage *img = [UIImage imageWithData:[post imageData]];
+            if (img)
+            {
+                [[self postIV]setImage:img];
+            }else{
+                [[LTDatabase sharedInstance]resetImageDataForPost:_post];
+            }
+        }else{
+            [[LTDatabase sharedInstance]srvDownloadImageForPost:_post];
+        }
+        
     }
 }
 
 
 -(void)setOpened:(BOOL)isOpened animated:(BOOL)isAnimated
 {
-    CGFloat constraintValue = isOpened?[self descriptionLbl].frame.size.height+12.0f:0.0f;
     if (isOpened)
     {
         
@@ -62,13 +81,9 @@
             [[self descriptionLbl]setHidden:NO];
             [[self descriptionLbl]setAlpha:0.0f];
             
-            [[self contentView]layoutIfNeeded];
+        
             
-            [UIView animateKeyframesWithDuration:0.20f delay:0.0f options:0 animations:^{
-                [UIView addKeyframeWithRelativeStartTime:0.0f relativeDuration:0.5f animations:^{
-                    [[self titleToSourceConstraint]setConstant:constraintValue];
-                    [[self contentView]layoutIfNeeded];
-                }];
+            [UIView animateKeyframesWithDuration:0.35f delay:0.0f options:0 animations:^{
                 [UIView addKeyframeWithRelativeStartTime:0.5f relativeDuration:0.5f animations:^{
                     [[self descriptionLbl]setAlpha:1.0f];
                 }];
@@ -76,20 +91,15 @@
         }else{
             [[self descriptionLbl]setHidden:NO];
             [[self descriptionLbl]setAlpha:1.0f];
-            [[self titleToSourceConstraint]setConstant:constraintValue];
         }
     }else{
         
         if (isAnimated)
         {
-            [[self contentView]layoutIfNeeded];
-            [UIView animateKeyframesWithDuration:0.2f delay:0.0f options:0 animations:^{
+
+            [UIView animateKeyframesWithDuration:0.35f delay:0.0f options:0 animations:^{
                 [UIView addKeyframeWithRelativeStartTime:0.0f relativeDuration:0.5f animations:^{
                     [[self descriptionLbl]setAlpha:0.0f];
-                }];
-                [UIView addKeyframeWithRelativeStartTime:0.5f relativeDuration:0.5f animations:^{
-                    [[self titleToSourceConstraint]setConstant:constraintValue];
-                    [[self contentView]layoutIfNeeded];
                 }];
                 
             } completion:^(BOOL finished) {
@@ -98,7 +108,6 @@
         }else{
             [[self descriptionLbl]setHidden:YES];
             [[self descriptionLbl]setAlpha:0.0f];
-            [[self titleToSourceConstraint]setConstant:constraintValue];
         }
     }
 }

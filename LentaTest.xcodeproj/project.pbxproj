@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		5920C1D71AB5F23C00603D73 /* LTXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5920C1D61AB5F23C00603D73 /* LTXMLParser.m */; };
 		592F82DA1AB616C6001D67AF /* LTPost+updateValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F82D91AB616C6001D67AF /* LTPost+updateValues.m */; };
+		8BB04C321AB6B3F7005F444B /* LTImagePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB04C311AB6B3F7005F444B /* LTImagePostCell.xib */; };
+		8BB04C341AB6B433005F444B /* LTPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB04C331AB6B433005F444B /* LTPostCell.xib */; };
+		8BB04C361AB6B504005F444B /* LTImagePostCell_SizingWText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB04C351AB6B504005F444B /* LTImagePostCell_SizingWText.xib */; };
+		8BB04C381AB6B57E005F444B /* LTImagePostCell_SizingWOText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB04C371AB6B57E005F444B /* LTImagePostCell_SizingWOText.xib */; };
+		8BB04C3A1AB6B5BB005F444B /* LTPostCell_SizingWText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB04C391AB6B5BB005F444B /* LTPostCell_SizingWText.xib */; };
+		8BB04C3C1AB6B72E005F444B /* LTPostCell_SizingWOText.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BB04C3B1AB6B72E005F444B /* LTPostCell_SizingWOText.xib */; };
+		8BB04C3F1AB6BD9B005F444B /* LTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB04C3E1AB6BD9B005F444B /* LTWebViewController.m */; };
 		8BF7E9D01AB58E7800845106 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9CF1AB58E7800845106 /* main.m */; };
 		8BF7E9D31AB58E7800845106 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9D21AB58E7800845106 /* AppDelegate.m */; };
 		8BF7E9D61AB58E7800845106 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF7E9D51AB58E7800845106 /* ViewController.m */; };
@@ -46,6 +53,14 @@
 		5920C1D61AB5F23C00603D73 /* LTXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTXMLParser.m; sourceTree = "<group>"; };
 		592F82D81AB616C6001D67AF /* LTPost+updateValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LTPost+updateValues.h"; sourceTree = "<group>"; };
 		592F82D91AB616C6001D67AF /* LTPost+updateValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LTPost+updateValues.m"; sourceTree = "<group>"; };
+		8BB04C311AB6B3F7005F444B /* LTImagePostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTImagePostCell.xib; sourceTree = "<group>"; };
+		8BB04C331AB6B433005F444B /* LTPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTPostCell.xib; sourceTree = "<group>"; };
+		8BB04C351AB6B504005F444B /* LTImagePostCell_SizingWText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTImagePostCell_SizingWText.xib; sourceTree = "<group>"; };
+		8BB04C371AB6B57E005F444B /* LTImagePostCell_SizingWOText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTImagePostCell_SizingWOText.xib; sourceTree = "<group>"; };
+		8BB04C391AB6B5BB005F444B /* LTPostCell_SizingWText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTPostCell_SizingWText.xib; sourceTree = "<group>"; };
+		8BB04C3B1AB6B72E005F444B /* LTPostCell_SizingWOText.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LTPostCell_SizingWOText.xib; sourceTree = "<group>"; };
+		8BB04C3D1AB6BD9B005F444B /* LTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTWebViewController.h; sourceTree = "<group>"; };
+		8BB04C3E1AB6BD9B005F444B /* LTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTWebViewController.m; sourceTree = "<group>"; };
 		8BF7E9CA1AB58E7800845106 /* LentaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LentaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF7E9CE1AB58E7800845106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF7E9CF1AB58E7800845106 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -172,6 +187,8 @@
 			children = (
 				8BF7E9D41AB58E7800845106 /* ViewController.h */,
 				8BF7E9D51AB58E7800845106 /* ViewController.m */,
+				8BB04C3D1AB6BD9B005F444B /* LTWebViewController.h */,
+				8BB04C3E1AB6BD9B005F444B /* LTWebViewController.m */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -233,6 +250,12 @@
 			children = (
 				8BF7EA251AB5AFD900845106 /* LTPostCell.h */,
 				8BF7EA261AB5AFD900845106 /* LTPostCell.m */,
+				8BB04C311AB6B3F7005F444B /* LTImagePostCell.xib */,
+				8BB04C331AB6B433005F444B /* LTPostCell.xib */,
+				8BB04C351AB6B504005F444B /* LTImagePostCell_SizingWText.xib */,
+				8BB04C371AB6B57E005F444B /* LTImagePostCell_SizingWOText.xib */,
+				8BB04C391AB6B5BB005F444B /* LTPostCell_SizingWText.xib */,
+				8BB04C3B1AB6B72E005F444B /* LTPostCell_SizingWOText.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -329,10 +352,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB04C381AB6B57E005F444B /* LTImagePostCell_SizingWOText.xib in Resources */,
+				8BB04C321AB6B3F7005F444B /* LTImagePostCell.xib in Resources */,
 				8BF7E9D91AB58E7800845106 /* Main.storyboard in Resources */,
 				8BF7EA0E1AB596ED00845106 /* PostSources.plist in Resources */,
+				8BB04C3C1AB6B72E005F444B /* LTPostCell_SizingWOText.xib in Resources */,
 				8BF7E9DE1AB58E7800845106 /* LaunchScreen.xib in Resources */,
+				8BB04C361AB6B504005F444B /* LTImagePostCell_SizingWText.xib in Resources */,
 				8BF7E9DB1AB58E7800845106 /* Images.xcassets in Resources */,
+				8BB04C3A1AB6B5BB005F444B /* LTPostCell_SizingWText.xib in Resources */,
+				8BB04C341AB6B433005F444B /* LTPostCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +390,7 @@
 				8BF7EA181AB5A55300845106 /* LTSource.m in Sources */,
 				8BF7EA1F1AB5AB1C00845106 /* LTPostsDataSource.m in Sources */,
 				8BF7EA2E1AB5C38F00845106 /* LTCommonClass.m in Sources */,
+				8BB04C3F1AB6BD9B005F444B /* LTWebViewController.m in Sources */,
 				8BF7E9FA1AB5917100845106 /* lentatest.xcdatamodeld in Sources */,
 				8BF7EA221AB5AC5B00845106 /* LTIOSPostsDataSource.m in Sources */,
 				8BF7E9D01AB58E7800845106 /* main.m in Sources */,

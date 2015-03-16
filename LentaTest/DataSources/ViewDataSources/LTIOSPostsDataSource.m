@@ -10,7 +10,7 @@
 #import "LTPostCell.h"
 #import "LTTableFooterView.h"
 
-@interface LTIOSPostsDataSource()
+@interface LTIOSPostsDataSource()<LTPostCellDelegate>
 {
 __weak LTTableFooterView *_footerView;
 }
@@ -31,6 +31,15 @@ __weak LTTableFooterView *_footerView;
 -(void)setMainTV:(UITableView*)mainTV
 {
     _mainTV = mainTV;
+    
+    
+    [_mainTV registerNib:[UINib nibWithNibName:@"LTPostCell" bundle:nil] forCellReuseIdentifier:@"LTPostCell"];
+    [_mainTV registerNib:[UINib nibWithNibName:@"LTImagePostCell" bundle:nil] forCellReuseIdentifier:@"LTImagePostCell"];
+    
+    [_mainTV registerNib:[UINib nibWithNibName:@"LTImagePostCell_SizingWText" bundle:nil] forCellReuseIdentifier:@"LTImagePostCell_SizingWText"];
+    [_mainTV registerNib:[UINib nibWithNibName:@"LTImagePostCell_SizingWOText" bundle:nil] forCellReuseIdentifier:@"LTImagePostCell_SizingWOText"];
+    [_mainTV registerNib:[UINib nibWithNibName:@"LTPostCell_SizingWText" bundle:nil] forCellReuseIdentifier:@"LTPostCell_SizingWText"];
+    [_mainTV registerNib:[UINib nibWithNibName:@"LTPostCell_SizingWOText" bundle:nil] forCellReuseIdentifier:@"LTPostCell_SizingWOText"];
     
     [_mainTV setDataSource:self];
     [_mainTV setDelegate:self];
@@ -70,13 +79,15 @@ __weak LTTableFooterView *_footerView;
     
     if ([post imageUrl] && [[post imageUrl]length]>0){
         
-        cell = [tableView dequeueReusableCellWithIdentifier:@"LTPostCellFull" forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LTImagePostCell" forIndexPath:indexPath];
     }else{
-        cell = [tableView dequeueReusableCellWithIdentifier:@"LTPostCellWOImage" forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"LTPostCell" forIndexPath:indexPath];
     }
     
     
     [self configureCell:cell atIndexPath:indexPath];
+    [cell setDelegate:self];
+    
     return cell;
 }
 
@@ -90,8 +101,7 @@ __weak LTTableFooterView *_footerView;
     
     [cell setPost:post];
     
-    NSString *selectedGUID;
-    if ((selectedGUID = [[self selectedPostGUIDSet]member:[post guid]])){
+    if ([[self selectedPostGUIDSet]member:[post guid]]){
         [cell setOpened:YES animated:NO];
     }else{
         [cell setOpened:NO animated:NO];
@@ -145,9 +155,17 @@ __weak LTTableFooterView *_footerView;
     LTPostCell *sizingCell;
     if ([post imageUrl] && [[post imageUrl]length]>0)
     {
-        sizingCell = [self sizingPostCellWithImage];
+        if ([self isPostSelected:post]){
+            sizingCell = [self imagePostCell_SizingWText];
+        }else{
+            sizingCell = [self imagePostCell_SizingWOText];
+        }
     }else{
-        sizingCell = [self sizingPostCellWOImage];
+        if ([self isPostSelected:post]){
+            sizingCell = [self postCell_SizingWText];
+        }else{
+            sizingCell = [self postCell_SizingWOText];
+        }
     }
     
     [self configureCell:sizingCell atIndexPath:indexPath];
@@ -155,26 +173,56 @@ __weak LTTableFooterView *_footerView;
 }
 
 
--(LTPostCell*)sizingPostCellWithImage
+-(LTPostCell*)postCell_SizingWText
 {
-    static LTPostCell *_sizingPostCellWithImage = nil;
+    static LTPostCell *_postCell_SizingWText = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sizingPostCellWithImage = [self.mainTV dequeueReusableCellWithIdentifier:@"LTPostCellFull"];
+        _postCell_SizingWText = [_mainTV dequeueReusableCellWithIdentifier:@"LTPostCell_SizingWText"];
+//        UINib *cellNib = [UINib nibWithNibName:@"LTPostCell_SizingWText" bundle:nil];
+//        _postCell_SizingWText = [cellNib instantiateWithOwner:nil options:nil][0];
     });
     
-    return _sizingPostCellWithImage;
+    return _postCell_SizingWText;
 }
 
--(LTPostCell*)sizingPostCellWOImage
+-(LTPostCell*)postCell_SizingWOText
 {
-    static LTPostCell *_sizingPostCellWOImage = nil;
+    static LTPostCell *_postCell_SizingWOText = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sizingPostCellWOImage = [self.mainTV dequeueReusableCellWithIdentifier:@"LTPostCellWOImage"];
+        _postCell_SizingWOText = [_mainTV dequeueReusableCellWithIdentifier:@"LTPostCell_SizingWOText"];
+//        UINib *cellNib = [UINib nibWithNibName:@"LTPostCell_SizingWOText" bundle:nil];
+//        _postCell_SizingWOText = [cellNib instantiateWithOwner:nil options:nil][0];
     });
     
-    return _sizingPostCellWOImage;
+    return _postCell_SizingWOText;
+}
+
+-(LTPostCell*)imagePostCell_SizingWText
+{
+    static LTPostCell *_imagePostCell_SizingWText = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _imagePostCell_SizingWText = [_mainTV dequeueReusableCellWithIdentifier:@"LTImagePostCell_SizingWText"];
+//        UINib *cellNib = [UINib nibWithNibName:@"LTImagePostCell_SizingWText" bundle:nil];
+//        _imagePostCell_SizingWText = [cellNib instantiateWithOwner:nil options:nil][0];
+    });
+    
+    return _imagePostCell_SizingWText;
+}
+
+-(LTPostCell*)imagePostCell_SizingWOText
+{
+    static LTPostCell *_imagePostCell_SizingWOText = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _imagePostCell_SizingWOText = [_mainTV dequeueReusableCellWithIdentifier:@"LTImagePostCell_SizingWOText"];
+//        UINib *cellNib = [UINib nibWithNibName:@"LTImagePostCell_SizingWOText" bundle:nil];
+//        _imagePostCell_SizingWOText = [cellNib instantiateWithOwner:nil options:nil][0];
+    });
+    
+    return _imagePostCell_SizingWOText;
 }
 
 
@@ -184,6 +232,15 @@ __weak LTTableFooterView *_footerView;
     
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height + 1.0f;
+}
+
+-(BOOL)isPostSelected:(LTPost*)post
+{
+    if ([[self selectedPostGUIDSet]member:[post guid]]){
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 #pragma mark - Fetched results controller
@@ -239,6 +296,14 @@ __weak LTTableFooterView *_footerView;
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.mainTV endUpdates];
+}
+
+
+#pragma mark - LTPostCellDelegate
+-(void)postCell:(LTPostCell *)cell didTapSourceForPost:(LTPost *)post
+{
+    if ([self delegate])
+        [[self delegate]postsDataSourceDidTapSourceBtnForPost:post];
 }
 
 @end

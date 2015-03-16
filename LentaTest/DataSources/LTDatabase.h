@@ -25,5 +25,8 @@ NSString *const LTDatabaseUpdateNotificationErrorKey;
 
 
 -(void)srvUpdatePostsForSource:(LTSource*)source;
+-(void)srvDownloadImageForPost:(LTPost*)post;
+
+-(void)resetImageDataForPost:(LTPost*)post;
 
 @end

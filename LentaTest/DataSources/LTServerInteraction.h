@@ -20,7 +20,7 @@ typedef void(^LTServerCompletionBlock)(NSArray *itemsArray, NSError *error);
 
 -(void)downloadPostsWithUrl:(NSString*)urlString withCompletion:(LTServerCompletionBlock)completion;
 
-
+-(void)getImageDataAtUrl:(NSString*)imageUrlString withCompletion:(void (^) (NSData *imageData, NSError *error))completion;
 
     
 @end

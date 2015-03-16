@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "LTDatabase.h"
 #import "LTIOSPostsDataSource.h"
+#import "LTWebViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<LTIOSPostsDataSourceDelegate>
 {
     LTIOSPostsDataSource *_dataSource;
 
@@ -36,6 +37,7 @@
     
     _dataSource = [LTIOSPostsDataSource new];
     [_dataSource setMainTV:[self tableView]];
+    [_dataSource setDelegate:self];
     
     [self prepareInterface];
 }
@@ -111,5 +113,18 @@
     [[LTDatabase sharedInstance]srvUpdatePostsForSource:nil];
 }
 
+
+#pragma mark - LTIOSPostsDataSourceDelegate
+-(void)postsDataSourceDidTapSourceBtnForPost:(LTPost *)post
+{
+    if (!post || ![post link] || [[post link]length]==0)
+        return;
+    
+    LTWebViewController *wvc = [[self storyboard]instantiateViewControllerWithIdentifier:@"LTWebViewController"];
+    
+    [wvc setUrlToShow:[[post link]copy]];
+    [[self navigationController]pushViewController:wvc animated:YES];
+    
+}
 
 @end

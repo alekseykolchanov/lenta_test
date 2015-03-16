@@ -210,20 +210,48 @@ NSString *const LTDatabaseUpdateNotificationErrorKey =
     return allEntities;
 }
 
+-(void)resetImageDataForPost:(LTPost*)post
+{
+    
+    if (!post)
+        return;
+    
+    NSManagedObjectContext *moc = [[SDCoreDataController sharedInstance]backgroundManagedObjectContext];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"LTPost"];
+    __block NSPredicate *predicate;
+    [post.managedObjectContext performBlockAndWait:^{
+        predicate = [NSPredicate predicateWithFormat:@"guid==%@ AND source.identificator==%@",[[post guid]copy], [[[post source]identificator]copy]];
+    }];
+    [fetchRequest setPredicate:predicate];
+    
+    [moc performBlock:^{
+        NSError *error;
+        NSArray *allEntities = [moc executeFetchRequest:fetchRequest error:&error];
+        [allEntities enumerateObjectsUsingBlock:^(LTPost *_post, NSUInteger idx, BOOL *stop) {
+            [_post setImageData:nil];
+        }];
+        
+        NSError *saveError;
+        if ([moc hasChanges]&&![moc save:&saveError])
+        {
+            NSLog(@"save Error");
+        }
+    }];
+}
 
 #pragma mark - Server Fetching
 -(void)srvUpdatePostsForSource:(LTSource*)source
 {
-    
-    
+
     if (!source)
     {
         NSManagedObjectContext *moc = [[SDCoreDataController sharedInstance]backgroundManagedObjectContext];
         
         NSArray *allSources = [self allSourcesInContext:moc];
-        [moc performBlockAndWait:^{
+        [moc performBlock:^{
             [allSources enumerateObjectsUsingBlock:^(LTSource *_source, NSUInteger idx, BOOL *stop) {
-                [self srvUpdatePostsForSource:_source];
+                    [self srvUpdatePostsForSource:_source];
             }];
         }];
         
@@ -251,6 +279,39 @@ NSString *const LTDatabaseUpdateNotificationErrorKey =
         [[NSNotificationCenter defaultCenter]postNotificationName:LTDatabaseDidFinishPostUpdateNotification object:self userInfo:@{LTDatabaseUpdateNotificationSourceUrlKey:sourceURLString,LTDatabaseUpdateNotificationErrorKey:error==nil?[NSNull null]:error}];
     }];
 }
+
+-(void)srvDownloadImageForPost:(LTPost*)post
+{
+    if (!post || ![post imageUrl])
+        return;
+    
+    NSString *urlString = [[post imageUrl]copy];
+    
+    [[LTServerInteraction sharedInstance]getImageDataAtUrl:urlString withCompletion:^(NSData *imageData, NSError *error) {
+        if (!error && imageData)
+        {
+            NSManagedObjectContext *moc = [[SDCoreDataController sharedInstance]backgroundManagedObjectContext];
+            
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"LTPost"];
+            [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"imageUrl==%@",urlString]];
+            
+            [moc performBlockAndWait:^{
+                NSError *error;
+                NSArray *allEntities = [moc executeFetchRequest:fetchRequest error:&error];
+                [allEntities enumerateObjectsUsingBlock:^(LTPost *_post, NSUInteger idx, BOOL *stop) {
+                    [_post setImageData:imageData];
+                }];
+                
+                NSError *saveError;
+                if ([moc hasChanges] && ![moc save:&saveError])
+                {
+                    NSLog(@"error while saving moc with image data");
+                }
+            }];
+        }
+    }];
+}
+
 
 #pragma mark - Syncing Posts
 -(void)syncServerPostArray:(NSArray*)postsArr forSourceWithIdentificator:(NSString *)sourceIdentificator

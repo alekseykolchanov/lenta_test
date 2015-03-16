@@ -11,6 +11,7 @@
 
 @implementation LTPost
 
+@dynamic imageType;
 @dynamic imageUrl;
 @dynamic title;
 @dynamic shortDescr;
