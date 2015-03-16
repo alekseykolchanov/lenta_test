@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,19 +13,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cK-Ik-Mg2" userLabel="paperView">
-                        <rect key="frame" x="8" y="6" width="304" height="290"/>
+                        <rect key="frame" x="8" y="10" width="304" height="286"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Gec-g7-dt2" userLabel="descriptionLbl">
-                                <rect key="frame" x="12" y="226" width="280" height="20"/>
+                                <rect key="frame" x="12" y="222" width="280" height="20"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SDm-sA-ufa" userLabel="postIV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SDm-sA-ufa" userLabel="postIV">
                                 <rect key="frame" x="0.0" y="0.0" width="304" height="203"/>
                                 <color key="backgroundColor" white="0.8515716055" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="SDm-sA-ufa" secondAttribute="height" multiplier="420:280" id="51Z-O5-XZZ"/>
+                                    <constraint firstAttribute="height" constant="203" id="A6q-SQ-Tg3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="n0r-Iu-Hi0" userLabel="titleLbl">
@@ -37,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pb-nL-gWY">
-                                <rect key="frame" x="246" y="246" width="46" height="44"/>
+                                <rect key="frame" x="246" y="242" width="46" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="4ng-vo-A4d"/>
                                     <constraint firstAttribute="height" constant="44" id="cTn-Gm-k7H"/>
@@ -51,7 +50,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 10 марта 2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vZ-5H-OK3" userLabel="dateLbl">
-                                <rect key="frame" x="12" y="261" width="118" height="15"/>
+                                <rect key="frame" x="12" y="257" width="118" height="15"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -77,7 +76,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="0cK-Ik-Mg2" firstAttribute="top" secondItem="PKU-2b-tXy" secondAttribute="top" constant="6" id="Ia2-sm-bdo"/>
+                    <constraint firstItem="0cK-Ik-Mg2" firstAttribute="top" secondItem="PKU-2b-tXy" secondAttribute="top" constant="10" id="Ia2-sm-bdo"/>
                     <constraint firstAttribute="bottom" secondItem="0cK-Ik-Mg2" secondAttribute="bottom" constant="4" id="OtT-wu-Mim"/>
                     <constraint firstAttribute="trailing" secondItem="0cK-Ik-Mg2" secondAttribute="trailing" constant="8" id="ryO-pg-a3w"/>
                     <constraint firstItem="0cK-Ik-Mg2" firstAttribute="leading" secondItem="PKU-2b-tXy" secondAttribute="leading" constant="8" id="utU-ea-n20"/>

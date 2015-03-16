@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,17 +13,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ST1-LW-VqC" userLabel="paperView">
-                        <rect key="frame" x="8" y="6" width="304" height="308"/>
+                        <rect key="frame" x="8" y="10" width="304" height="304"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-n1-NE1" userLabel="postIV">
                                 <rect key="frame" x="0.0" y="0.0" width="304" height="203"/>
                                 <color key="backgroundColor" white="0.8515716055" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="IhT-n1-NE1" secondAttribute="height" multiplier="420:280" id="nHW-Mn-q5f"/>
+                                    <constraint firstAttribute="height" constant="203" id="4Db-Yd-L1s"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="6Z8-1F-UGM" userLabel="titleLbl">
-                                <rect key="frame" x="12" y="215" width="280" height="41"/>
+                                <rect key="frame" x="12" y="215" width="280" height="37"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -44,7 +43,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="ST1-LW-VqC" firstAttribute="top" secondItem="tbk-jT-TLv" secondAttribute="top" constant="6" id="3gT-Hj-etO"/>
+                    <constraint firstItem="ST1-LW-VqC" firstAttribute="top" secondItem="tbk-jT-TLv" secondAttribute="top" constant="10" id="3gT-Hj-etO"/>
                     <constraint firstItem="ST1-LW-VqC" firstAttribute="leading" secondItem="tbk-jT-TLv" secondAttribute="leading" constant="8" id="8tY-C8-ZMI"/>
                     <constraint firstAttribute="bottom" secondItem="ST1-LW-VqC" secondAttribute="bottom" constant="4" id="Gh1-dd-wgh"/>
                     <constraint firstAttribute="trailing" secondItem="ST1-LW-VqC" secondAttribute="trailing" constant="8" id="yAm-Lt-vcW"/>

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,13 +13,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5m-kl-5qK" userLabel="paperView">
-                        <rect key="frame" x="8" y="6" width="304" height="349"/>
+                        <rect key="frame" x="8" y="10" width="304" height="345"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vtr-Sr-RZp" userLabel="postIV">
                                 <rect key="frame" x="0.0" y="0.0" width="304" height="203"/>
                                 <color key="backgroundColor" white="0.8515716055" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Vtr-Sr-RZp" secondAttribute="height" multiplier="420:280" id="i9f-1l-Y3b"/>
+                                    <constraint firstAttribute="height" constant="203" id="6i2-yo-Ryd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="761" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="00m-bR-8pG" userLabel="titleLbl">
@@ -30,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="760" verticalHuggingPriority="760" horizontalCompressionResistancePriority="760" verticalCompressionResistancePriority="760" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Mo3-k1-WFf" userLabel="descriptionLbl">
-                                <rect key="frame" x="12" y="247" width="280" height="58"/>
+                                <rect key="frame" x="12" y="247" width="280" height="54"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -56,7 +55,7 @@
                     <constraint firstAttribute="trailing" secondItem="p5m-kl-5qK" secondAttribute="trailing" constant="8" id="5t1-5v-tBu"/>
                     <constraint firstAttribute="bottom" secondItem="p5m-kl-5qK" secondAttribute="bottom" constant="4" id="8Ax-fL-UGj"/>
                     <constraint firstItem="p5m-kl-5qK" firstAttribute="leading" secondItem="P0I-BJ-yF7" secondAttribute="leading" constant="8" id="BaV-4R-Q9P"/>
-                    <constraint firstItem="p5m-kl-5qK" firstAttribute="top" secondItem="P0I-BJ-yF7" secondAttribute="top" constant="6" id="eDw-1j-Xjg"/>
+                    <constraint firstItem="p5m-kl-5qK" firstAttribute="top" secondItem="P0I-BJ-yF7" secondAttribute="top" constant="10" id="eDw-1j-Xjg"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
